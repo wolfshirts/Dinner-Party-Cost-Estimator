@@ -39,7 +39,7 @@ namespace Dinner_Party_Cost_Estimator
         {
             if(NumberOfPeople <= 4)
             {
-                return MaxWritingLength();
+                return 8;
             }
             else
             {

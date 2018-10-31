@@ -186,6 +186,7 @@
             this.birthdayPeopleControl.Name = "birthdayPeopleControl";
             this.birthdayPeopleControl.Size = new System.Drawing.Size(120, 20);
             this.birthdayPeopleControl.TabIndex = 1;
+            this.birthdayPeopleControl.ValueChanged += new System.EventHandler(this.birthdayPeopleControl_ValueChanged);
             // 
             // birthdayFancyDecorationControl
             // 
@@ -196,6 +197,7 @@
             this.birthdayFancyDecorationControl.TabIndex = 2;
             this.birthdayFancyDecorationControl.Text = "Fancy Decorations";
             this.birthdayFancyDecorationControl.UseVisualStyleBackColor = true;
+            this.birthdayFancyDecorationControl.CheckedChanged += new System.EventHandler(this.birthdayFancyDecorationControl_CheckedChanged);
             // 
             // label4
             // 
@@ -216,6 +218,7 @@
             this.tooLongLabel.Size = new System.Drawing.Size(53, 13);
             this.tooLongLabel.TabIndex = 4;
             this.tooLongLabel.Text = "Too Long";
+            this.tooLongLabel.Visible = false;
             // 
             // cakeWritingTextBox
             // 
@@ -223,6 +226,8 @@
             this.cakeWritingTextBox.Name = "cakeWritingTextBox";
             this.cakeWritingTextBox.Size = new System.Drawing.Size(120, 20);
             this.cakeWritingTextBox.TabIndex = 5;
+            this.cakeWritingTextBox.Text = "Happy Birthday";
+            this.cakeWritingTextBox.TextChanged += new System.EventHandler(this.cakeWritingTextChanged);
             // 
             // label5
             // 

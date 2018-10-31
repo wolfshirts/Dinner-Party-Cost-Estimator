@@ -13,6 +13,7 @@ namespace Dinner_Party_Cost_Estimator
     public partial class Form1 : Form
     {
         private DinnerParty dinnerParty;
+        BirthdayParty birthdayParty; //don't actually need private things are private by default.
 
         public Form1()
         {
@@ -23,6 +24,11 @@ namespace Dinner_Party_Cost_Estimator
 
 
             UpdateCost();
+
+            birthdayParty = new BirthdayParty((int)birthdayPeopleControl.Value, birthdayFancyDecorationControl.Checked,
+                cakeWritingTextBox.Text);
+
+            DisplayBirthdayPartyCost();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -46,6 +52,30 @@ namespace Dinner_Party_Cost_Estimator
         private void UpdateCost()
         {
             costLabel.Text = dinnerParty.Cost.ToString("c");
+        }
+
+        private void DisplayBirthdayPartyCost()
+        {
+            tooLongLabel.Visible = birthdayParty.CakeWritingTooLong;
+            birthdayCostLabel.Text = birthdayParty.Cost.ToString("c");
+        }
+
+        private void birthdayPeopleControl_ValueChanged(object sender, EventArgs e)
+        {
+            birthdayParty.NumberOfPeople = (int)birthdayPeopleControl.Value;
+            DisplayBirthdayPartyCost();
+        }
+
+        private void birthdayFancyDecorationControl_CheckedChanged(object sender, EventArgs e)
+        {
+            birthdayParty.FancyDecorations = birthdayFancyDecorationControl.Checked;
+            DisplayBirthdayPartyCost();
+        }
+
+        private void cakeWritingTextChanged(object sender, EventArgs e)
+        {
+            birthdayParty.CakeWriting = cakeWritingTextBox.Text;
+            DisplayBirthdayPartyCost();
         }
     }
 }
