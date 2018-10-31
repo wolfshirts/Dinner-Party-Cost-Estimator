@@ -183,9 +183,19 @@
             // birthdayPeopleControl
             // 
             this.birthdayPeopleControl.Location = new System.Drawing.Point(105, 19);
+            this.birthdayPeopleControl.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.birthdayPeopleControl.Name = "birthdayPeopleControl";
             this.birthdayPeopleControl.Size = new System.Drawing.Size(120, 20);
             this.birthdayPeopleControl.TabIndex = 1;
+            this.birthdayPeopleControl.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.birthdayPeopleControl.ValueChanged += new System.EventHandler(this.birthdayPeopleControl_ValueChanged);
             // 
             // birthdayFancyDecorationControl
