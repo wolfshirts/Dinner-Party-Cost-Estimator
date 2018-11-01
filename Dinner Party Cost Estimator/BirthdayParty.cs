@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dinner_Party_Cost_Estimator
 {
-    class BirthdayParty
+    class BirthdayParty:Party
     {
-        public int NumberOfPeople { get; set; }
-        public bool FancyDecorations { get; set; }
-        public const decimal CostOfFoodPerPerson = 25M;
         public string CakeWriting { get; set; }
         
         public BirthdayParty(int numberOfPeople, bool fancyDecor, string cakeWriting)
@@ -74,27 +71,13 @@ namespace Dinner_Party_Cost_Estimator
             }
         }
 
-        private decimal CalculateCostOfDecorations()
-        {
-            decimal costOfDecor;
-            if (FancyDecorations)
-            {
-                costOfDecor = (NumberOfPeople * 15.00M) + 50M;
-            }
-            else
-            {
-                costOfDecor = (NumberOfPeople * 7.50M) + 30M;
-            }
+        
 
-            return costOfDecor;
-        }
-
-        public decimal Cost
+        public override decimal Cost
         {
             get
             {
-                decimal totalCost = CalculateCostOfDecorations();
-                totalCost += CostOfFoodPerPerson * NumberOfPeople;
+                decimal totalCost = base.Cost;
                 decimal cakeCost;
                 if (CakeSize() == 8)
                     cakeCost = 40M + ActualLength * .25M;

@@ -8,18 +8,16 @@ using System.Windows.Forms;
 
 namespace Dinner_Party_Cost_Estimator
 {
-    class DinnerParty
+    class DinnerParty:Party
     {
-        public const int CostOfFoodPerPerson = 25;
-        public int NumberOfPeople { get; set; }
-        public bool FancyDecorations { get; set; }
+        
         public bool HealthyOption { get; set; }
-        public decimal Cost
+        public override decimal Cost
         {
             get
             {
-                decimal cost = calculateCostOfDecorations();
-                cost += ((calculateCostOfBeveragesPerPerson() + CostOfFoodPerPerson) * NumberOfPeople);
+                decimal cost = base.Cost;
+                cost += (calculateCostOfBeveragesPerPerson() * NumberOfPeople);
                 if (HealthyOption)
                 {
                     cost *= .95M;
@@ -35,19 +33,6 @@ namespace Dinner_Party_Cost_Estimator
             FancyDecorations = fancyDecoration;
         }
 
-        private decimal calculateCostOfDecorations()
-        {
-            decimal costOfDec;
-            if (FancyDecorations)
-            {
-                costOfDec = (NumberOfPeople * 15.00M) + 50M;
-            }
-            else
-            {
-                costOfDec = (NumberOfPeople * 7.50M) + 30M;
-            }
-            return costOfDec;
-        }
 
         private decimal calculateCostOfBeveragesPerPerson()
         {
